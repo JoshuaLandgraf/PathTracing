@@ -56,6 +56,9 @@ Settings | Output
 <img src="images/settings46.png" width="512"> | ![](images/save46.bmp)
 <img src="images/settings47.png" width="512"> | ![](images/save47.bmp)
 <img src="images/settings48.png" width="512"> | ![](images/save48.bmp)
+<img src="images/settings50.png" width="512"> | ![](images/save50.bmp)
+<img src="images/settings51.png" width="512"> | ![](images/save51.bmp)
+<img src="images/settings52.png" width="512"> | ![](images/save52.bmp)
 
 ## References
 
