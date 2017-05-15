@@ -47,19 +47,19 @@ These enable and disable the linear and gaussian attenuation schemes that limit 
 
 ## Renders
 
-Settings | Output
-:---: | :---:
-<img src="images/settings42.png" width="512"> | ![](images/save42.bmp)
-<img src="images/settings43.png" width="512"> | ![](images/save43.bmp)
-<img src="images/settings44.png" width="512"> | ![](images/save44.bmp)
-<img src="images/settings45.png" width="512"> | ![](images/save45.bmp)
-<img src="images/settings46.png" width="512"> | ![](images/save46.bmp)
-<img src="images/settings47.png" width="512"> | ![](images/save47.bmp)
-<img src="images/settings48.png" width="512"> | ![](images/save48.bmp)
-<img src="images/settings49.png" width="512"> | ![](images/save49.bmp)
-<img src="images/settings50.png" width="512"> | ![](images/save50.bmp)
-<img src="images/settings51.png" width="512"> | ![](images/save51.bmp)
-<img src="images/settings52.png" width="512"> | ![](images/save52.bmp)
+Settings | Output1 | Output2
+:---: | :---: | :---:
+<img src="images/settings42.png" width="512"> | ![](images/save42.bmp) | ![](images/save42_2.bmp)
+<img src="images/settings43.png" width="512"> | ![](images/save43.bmp) | ![](images/save43_2.bmp)
+<img src="images/settings44.png" width="512"> | ![](images/save44.bmp) | ![](images/save44_2.bmp)
+<img src="images/settings45.png" width="512"> | ![](images/save45.bmp) | ![](images/save45_2.bmp)
+<img src="images/settings46.png" width="512"> | ![](images/save46.bmp) | ![](images/save46_2.bmp)
+<img src="images/settings47.png" width="512"> | ![](images/save47.bmp) | 
+<img src="images/settings48.png" width="512"> | ![](images/save48.bmp) | 
+<img src="images/settings49.png" width="512"> | ![](images/save49.bmp) | 
+<img src="images/settings50.png" width="512"> | ![](images/save50.bmp) | 
+<img src="images/settings51.png" width="512"> | ![](images/save51.bmp) | 
+<img src="images/settings52.png" width="512"> | ![](images/save52.bmp) | 
 
 ## References
 
