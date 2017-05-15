@@ -1,13 +1,13 @@
-# PathTracing
-This project is a modification of my ray tracer to support path tracing.
+# Photon Mapping
+This project is a modification of my ray tracer to support photon mapping.
 
 ## Background and Accomplishments
 
-Path tracing is a complex process involving a number of stages to produce a final output. At a high level, I use a Monte Carlo-based path tracing algorithm to spread photons around a scene and then integrate the power of these photons to determine luminosity at any particular point. Below is a somewhat more detailed description of my methods, but it is far from exhaustive. For more information, "A Practical Guide to Global Illumination using Photon Maps" (linked below) is good, but still lacks many important details despite ~30 pages of content.
+Photon mapping is a complex process involving a number of stages to produce a final output. At a high level, I use a Monte Carlo-based photon mapping algorithm to spread photons around a scene and then integrate the power of these photons to determine luminosity at any particular point. Below is a somewhat more detailed description of my methods, but it is far from exhaustive. For more information, "A Practical Guide to Global Illumination using Photon Maps" (linked below) is good, but still lacks many important details despite ~30 pages of content.
 
-### Advantages of Monte Carlo Path Tracing
+### Advantages of Monte Carlo Photon Mapping
 
-Randomized algorithm massively reduce space and time requirements to converge on a final result. In a standard ray tracer, any time a ray hits a surface it will be reflected and transmitted until we hit a maximum depth or the contribution to the original pixel is irrelevant. However, this results in a massive number of total rays being spawned. While this amount of computation can be tolerable, we do not have to deal with the conseqeunces of storing all these rays at once as we can explore ray paths in a depth-first manner. This is hard, if not impossible, to do with path tracing. By using randomization, we can choose to reflect, transmit, or absorb a photon based on the probability of each action occuring. This means that each initial photon does not spawn more photons, preventing an exponential increase in photon count. This also prevents the presence of low-energy photons, which can have adverse effects on performance and quality of results.
+Randomized algorithm massively reduce space and time requirements to converge on a final result. In a standard ray tracer, any time a ray hits a surface it will be reflected and transmitted until we hit a maximum depth or the contribution to the original pixel is irrelevant. However, this results in a massive number of total rays being spawned. While this amount of computation can be tolerable, we do not have to deal with the conseqeunces of storing all these rays at once as we can explore ray paths in a depth-first manner. This is hard, if not impossible, to do with photon mapping. By using randomization, we can choose to reflect, transmit, or absorb a photon based on the probability of each action occuring. This means that each initial photon does not spawn more photons, preventing an exponential increase in photon count. This also prevents the presence of low-energy photons, which can have adverse effects on performance and quality of results.
 
 ### Light Emission
 
@@ -23,7 +23,7 @@ To recall these photons later, we store them at every surface interaction. I use
 
 ### Rendering
 
-We discovered there were a variety of ways to shade a material with path tracing. Some methods only use the stored photons for caustics, while others use them most of the lighting features. In our code, we experimented with many different approaches and expose them to the user. In the simplest case, we treat photons similar to light sources in the Phong shading model and integrate only the light present near the ray / surface intersection. However, effects like specular reflection and transmission do not always come out well this way. Therefore we also allow for these effects to be handled by using specular and transmissive rays to better simulate these effects. We also allow users to control the maximum number of photons to be integrated by specifing a maximum number of photons and a maximum search distance. It is also possible to fix the maximum search distance so that all photons in this range are considered instead of a variable number based on actual photons found. To account for the fact that more photons will be found in a larger search area, we assume the photons lie on a plane and divide by the circular area (even though we search in a sphere).  We also expose a number of smoothing methods to the user. Photons farther from the point of ray impact can be attenuated using a linear filter, a gaussian filter, or no filter at all.
+We discovered there were a variety of ways to shade a material with photon mapping. Some methods only use the stored photons for caustics, while others use them most of the lighting features. In our code, we experimented with many different approaches and expose them to the user. In the simplest case, we treat photons similar to light sources in the Phong shading model and integrate only the light present near the ray / surface intersection. However, effects like specular reflection and transmission do not always come out well this way. Therefore we also allow for these effects to be handled by using specular and transmissive rays to better simulate these effects. We also allow users to control the maximum number of photons to be integrated by specifing a maximum number of photons and a maximum search distance. It is also possible to fix the maximum search distance so that all photons in this range are considered instead of a variable number based on actual photons found. To account for the fact that more photons will be found in a larger search area, we assume the photons lie on a plane and divide by the circular area (even though we search in a sphere).  We also expose a number of smoothing methods to the user. Photons farther from the point of ray impact can be attenuated using a linear filter, a gaussian filter, or no filter at all.
 
 ## Render Settings
 
@@ -71,7 +71,7 @@ Settings | Output1 | Output2
 * With about 30 pages on the subject, this is one of the most comprehensive guides I could find. Unfortunately, I actually wish this was much longer as there were a lot of important details still missing that would have been helpful.
 
 ["Global Illumination using Photon Maps"](http://graphics.ucsd.edu/~henrik/papers/photon_map/global_illumination_using_photon_maps_egwr96.pdf)
-* The original paper on path tracing as far as I know. While less complete, it is still somewhat helpful and provides a high-level overview.
+* The original paper on photon mapping as far as I know. While less complete, it is still somewhat helpful and provides a high-level overview.
 
 [Wikipedia's article on diffuse reflection](https://en.wikipedia.org/wiki/Diffuse_reflection)
 * This, along with the articles on Lambertian reflectance and the cosine law, were helpful for understanding diffuse reflection so I could sample it properly.
