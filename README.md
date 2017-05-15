@@ -3,7 +3,7 @@ This project is a modification of my ray tracer to support path tracing.
 
 ## Background and Accomplishments
 
-Path tracing is a complex process involving a number of stages to produce a final output. At a high level, I use a Monte Carlo-based path tracing algorithm to spread photons around a scene and then integrate the power of these photons to determine luminosity at any particular point. 
+Path tracing is a complex process involving a number of stages to produce a final output. At a high level, I use a Monte Carlo-based path tracing algorithm to spread photons around a scene and then integrate the power of these photons to determine luminosity at any particular point. Below is a somewhat more detailed description of my methods, but it is far from exhaustive. For more information, "A Practical Guide to Global Illumination using Photon Maps" (linked below) is good, but still lacks many important details despite ~30 pages of content.
 
 ### Advantages of Monte Carlo Path Tracing
 
