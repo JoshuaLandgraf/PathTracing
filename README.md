@@ -25,6 +25,26 @@ To recall these photons later, we store them at every surface interaction. I use
 
 We discovered there were a variety of ways to shade a material with path tracing. Some methods only use the stored photons for caustics, while others use them most of the lighting features. In our code, we experimented with many different approaches and expose them to the user. In the simplest case, we treat photons similar to light sources in the Phong shading model and integrate only the light present near the ray / surface intersection. However, effects like specular reflection and transmission do not always come out well this way. Therefore we also allow for these effects to be handled by using specular and transmissive rays to better simulate these effects. We also allow users to control the maximum number of photons to be integrated by specifing a maximum number of photons and a maximum search distance. It is also possible to fix the maximum search distance so that all photons in this range are considered instead of a variable number based on actual photons found. To account for the fact that more photons will be found in a larger search area, we assume the photons lie on a plane and divide by the circular area (even though we search in a sphere).  We also expose a number of smoothing methods to the user. Photons farther from the point of ray impact can be attenuated using a linear filter, a gaussian filter, or no filter at all.
 
+## Render Settings
+
+#### Specular Rays
+When enabled, uses ray tracing to compute more accurate specular effects. When disabled, estimates specular effects using the rays near the point of intersection. Has a noticeable impact on performance, but the results are usually much better as there aren't enough photons for good specular reflection, especially since it's such a precise effect.
+
+#### Transparency Rays
+Similar to specular rays, but for transparent objects. It also adds a big impact on performance, but is usually better. However, if using a large photon search area, the natrual blur effect can create a frosted glass effect.
+
+#### Log2 Photons
+Controls the initial number of photons spawned that actually hit the scene. A setting of 24+ will usually consume 1GB of RAM or more, so be careful to not set it too high. While the photon propagation step is usually pretty fast, this will eventually slow render times as the final number of photons generated will be quite large.
+
+#### Log2 Photons Per Ray
+This is an upper bound on the number of photons used to determine luminosity at a single ray intersection. When Fixed-Distance Photon Search is enabled, this setting is ignored as there is no explicit upper-bound on the number of photons a ray could gather.
+
+#### Log2 Max Search Distance
+This is an upper bound on the maximum distance from the point of ray intersection to a photon used by that ray.
+
+#### Linear and Gaussian Attenuation
+These enable and disable the linear and gaussian attenuation schemes that limit a photon's contribution as it gets farther away from the point of ray intersection. If neither is enabled, there will be no attenuation, leading to an "out of focus" effect with lots of bright circles.
+
 ## Renders
 
 Settings | Output
@@ -34,6 +54,8 @@ Settings | Output
 <img src="images/settings44.png" width="512"> | ![](images/save44.bmp)
 <img src="images/settings45.png" width="512"> | ![](images/save45.bmp)
 <img src="images/settings46.png" width="512"> | ![](images/save46.bmp)
+<img src="images/settings47.png" width="512"> | ![](images/save47.bmp)
+<img src="images/settings48.png" width="512"> | ![](images/save48.bmp)
 
 ## References
 
