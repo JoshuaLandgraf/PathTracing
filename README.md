@@ -68,10 +68,10 @@ Settings | Output1 | Output2
 * This was a good intro to the subject and helped me understand the math behind photon mapping
 
 ["A Practical Guide to Global Illumination using Photon Maps"](https://graphics.stanford.edu/courses/cs348b-00/course8.pdf)
-* With about 30 pages on the subject, this is one of the most comprehensive guides I could find on the subject. Unfortunately, I actually wish this was much longer as there were a lot of important details still missing that would have been helpful.
+* With about 30 pages on the subject, this is one of the most comprehensive guides I could find. Unfortunately, I actually wish this was much longer as there were a lot of important details still missing that would have been helpful.
 
 ["Global Illumination using Photon Maps"](http://graphics.ucsd.edu/~henrik/papers/photon_map/global_illumination_using_photon_maps_egwr96.pdf)
-* The original paper on the subject as far as I know. Much less comprehensive, but somewhat helpful.
+* The original paper on path tracing as far as I know. While less complete, it is still somewhat helpful and provides a high-level overview.
 
 [Wikipedia's article on diffuse reflection](https://en.wikipedia.org/wiki/Diffuse_reflection)
-* This, along with the articles on Lambertian reflectance and the cosine law were helpful for understanding diffuse reflection and for sampling it properly
+* This, along with the articles on Lambertian reflectance and the cosine law, were helpful for understanding diffuse reflection so I could sample it properly.
